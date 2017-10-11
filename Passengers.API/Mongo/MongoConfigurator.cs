@@ -42,7 +42,7 @@ namespace Passengers.Core.Mongo
  new CamelCaseElementNameConvention(),
  
  //write enum as a string
- new EnumRepresentationConvention(BsonType.String)
+ new EnumRepresentationConvention(BsonType.String),
  
  
  };
