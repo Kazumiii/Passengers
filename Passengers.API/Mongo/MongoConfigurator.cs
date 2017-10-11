@@ -16,10 +16,7 @@ namespace Passengers.Core.Mongo
         {
             if (_initialize)
                 return;
-            else
-            {
-
-            }
+           _initialize=true;
 
         }
         //it says how to write data inside the database
