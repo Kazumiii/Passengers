@@ -10,6 +10,7 @@ namespace Passengers.Core.Services
     {
         private IDriverService _driverservice;
 
+private IDriverRouteServic _driverRouteService;
         private readonly IUserService _service;
 
         private readonly ILogger<DataInitialize> _logger;
@@ -27,7 +28,7 @@ namespace Passengers.Core.Services
         {
             _logger.LogTrace("Initializing data...");
 
-
+//i want to be sure users will be register fisr then drivers and so on  to get such sequence i use await 
             //Register method is asynchronus methodso i need await parametr but to don't copycat many times
             //this operator i creat  List<Task> and i will launch all data when i collected all 
             var task = new List<Task>();
@@ -35,11 +36,14 @@ namespace Passengers.Core.Services
             {
                 var id = Guid.NewGuid();
                 var userName = $"user{i}";
-                _logger.LogTrace($"Created user:'{userName}; ");
-                task.Add(_service.Register(id,"user@gmail.com","UserName","secret","user"));
-                //inicialization
-                task.Add(_driverservice.CreateAsync(id));
-                task.Add(_driverservice.SetVehicle(id, "BMw", "i8"));
+                await _service.Register(userid,$"user{i}@test.com"username,"secret","user");
+                _logger.LogTrace($"Created user:'{userName}' ");
+                   await _driverservice.CreateAsync(userid);
+                       await _driverservice.SetVehicle(id, "BMw", "i8"));
+                        _logger.LogTrace($"Adding driver for:'{userName}' ");
+                        await _driverRouteService.Add(userid,"defaultRoute",1,1,2,2);
+                             await _driverRouteService.Add(userid,"Job Route",3,4,7,8);
+         _logger.LogTrace($"Adding route for:'{userName}' ");
                 
             }
 
