@@ -1,7 +1,0 @@
-using System;
-namespaces.Passengers.Core.Services
-public class UserRepository:IUserRepository
-{
-private readonly IMongoDatabase _dbase;
-
-}
