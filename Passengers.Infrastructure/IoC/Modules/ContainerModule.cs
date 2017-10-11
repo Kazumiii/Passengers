@@ -23,6 +23,7 @@ namespace Passengers.Infrastructure.IoC.Modules
         {
             builder.RegisterModule<ServiceModule>();
             builder.RegisterModule<RepositoryModule>();
+            builder.RegisterModule<MongoModule>();
             builder.RegisterModule<CommandModule>();
             builder.RegisterModule(new SettingModule(_configuration));
         }
