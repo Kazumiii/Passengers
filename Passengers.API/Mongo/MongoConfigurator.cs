@@ -23,8 +23,27 @@ namespace Passengers.Core.Mongo
         //it says how to write data inside the database
         public static void RegisterConvenction()
         {
-            ConventionRegistry.Registry("PassengerConvention",);
+            ConventionRegistry.Register("PassengerConvention",new MongoConvention(),x=>true);
         }
 
     }
+    
+    //here i write my convention
+    private class MongoConvention:IConventionPack
+    {
+ public IEnumerable<IConvention>()=>new List<IConvention>()
+ {
+ //ignore unserializable elements
+ new IgnoreExtraElementsConvention(true),
+ 
+ //we want to write our data in camelCase form convention
+ new CamelCaseElementNameConvention(),
+ 
+ //write enum as a string
+ new EnumRepresentationConvention(BsonType.String)
+ 
+ 
+ }
+    
+}
 }
