@@ -1,9 +1,9 @@
-﻿using MongoDB.Bson.Serialization.Conventions;
+using MongoDB.Bson.Serialization.Conventions;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Conventions;
+ 
 
 namespace Passengers.Core.Mongo
 {
@@ -45,7 +45,7 @@ namespace Passengers.Core.Mongo
  new EnumRepresentationConvention(BsonType.String)
  
  
- }
+ };
     
 }
 }
