@@ -26,6 +26,15 @@ private IDriverRouteServic _driverRouteService;
         //this method creates users
         public async Task Sead()
         {
+        
+        var user=await _service.BrowseAsync();
+        
+        if(user.Any())
+        {
+        
+        //we don't want to re-initialize users
+        return;
+        }
             _logger.LogTrace("Initializing data...");
 
 //i want to be sure users will be register fisr then drivers and so on  to get such sequence i use await 
