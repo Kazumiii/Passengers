@@ -135,6 +135,7 @@ namespace Passengers.API
             lifeTime.ApplicationStopped.Register(() => ApplicationContainer.Dispose());
 
 
+         MongoConfiguration.Initialize();
             //place where we want to initialzie data
             var genearlSettings = app.ApplicationServices.GetService<GeneralSettings>();
             //checking SeatData flag( true or not)
