@@ -10,7 +10,7 @@ namespace Passengers.Core.Services
 {
     public class InMemoryUserRepository : IUserRepository
     {
-
+//hash set collection contains only unique data
         private static ISet<User> _users = new HashSet<User>();
      /*   {
            new User ("user1@gmail.com","User1","secret","salt"),
