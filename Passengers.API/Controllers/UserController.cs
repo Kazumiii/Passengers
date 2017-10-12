@@ -50,7 +50,8 @@ namespace Passengers.API.Controllers
             }
             return Json(user);
         }
-
+//I can pass parametrers directly in method but beeter way is pass using special class which contains those parameters
+//but when i must have [FromBody]
         //[FromBody] is necessary to ASP.NET Core knows  to HTTP reguires ( in JASON form)will be put  to these data   
         [HttpPost("")]
         public async Task<IActionResult> Post([FromBody]CreateUser command )
